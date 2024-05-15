@@ -16,6 +16,7 @@ class BaseProvider(ABC):
         batch_size (Optional[int]): The batch size for processing the dataset.
         dataset (Dataset): The loaded dataset.
     """
+
     def __init__(self, dataset_path: Optional[str], translator: GoogleTranslator, batch_size: Optional[int] = None):
         self.dataset_path = dataset_path
         self.translator = translator
