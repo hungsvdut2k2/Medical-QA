@@ -32,8 +32,8 @@ class DiseaseCrawler(BaseCrawler):
             response = requests.get(url)
             soup = BeautifulSoup(response.text, "lxml")
             sections = soup.find_all(
-                "section", {"class": "collapsible-container collapsible-block collapsed screen-sm"}
-            )
+                    "section", {"class": "collapsible-container collapsible-block collapsed screen-sm"}
+                )
 
             for index, section in enumerate(sections):
                 section_title = section.find("span").text
@@ -43,8 +43,9 @@ class DiseaseCrawler(BaseCrawler):
                 splitted_content = section_content.text.strip().split("\n")
                 splitted_content = [content for content in splitted_content if content.strip() != ""]
 
-                if p_tags[0].strong:
-                    splitted_content.pop(0)
+                if len(p_tags) > 0:
+                    if p_tags[0].strong:
+                        splitted_content.pop(0)
 
                 removed_start_index = 0
 
@@ -57,12 +58,12 @@ class DiseaseCrawler(BaseCrawler):
                     splitted_content = splitted_content[:removed_start_index]
 
                 result.append(
-                    {
-                        "title": section_title,
-                        "content": "\n".join(splitted_content),
-                    }
-                )
+                        {
+                            "title": section_title,
+                            "content": "\n".join(splitted_content),
+                        }
+                    )
         except Exception as e:
-            logger.info("{exception} at {url}".format(exception=e, url=url))
+            logger.error("{exception} at {url}".format(exception=e, url=url))
 
         return result

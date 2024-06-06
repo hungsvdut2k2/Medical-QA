@@ -25,9 +25,14 @@ if __name__ == "__main__":
             tqdm(pool.imap(crawler.crawl_content, urls), total=len(urls))
         )
 
-    contents = [content for content in results_iter if len(content) > 0]
+    final_contents = []
+
+    for content in results_iter:
+        if len(content) > 0:
+            final_contents.extend(content)
+
 
     with open(args.output_file_path, "w", encoding="utf-8") as json_file:
-        json.dump(contents, json_file, ensure_ascii=False, indent=4)
+        json.dump(final_contents, json_file, ensure_ascii=False, indent=4)
 
 
