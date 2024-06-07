@@ -12,6 +12,7 @@ class DeepLTranslator:
         api_url (str): The URL of the DeepL translation API.
         headers (dict): The headers to be included in the API request.
     """
+
     def __init__(self):
         self.api_url = "http://127.0.0.1:1188/v2/translate"
 

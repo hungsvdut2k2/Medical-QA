@@ -14,16 +14,12 @@ if __name__ == "__main__":
     parser.add_argument("--output-file-path", type=str, required=True)
     args = parser.parse_args()
 
-    crawler = CrawlerFactory.create_crawler(
-        crawler_type=args.crawler_type, main_url=args.main_url
-    )
+    crawler = CrawlerFactory.create_crawler(crawler_type=args.crawler_type, main_url=args.main_url)
 
     urls = crawler.crawl_urls()
 
     with Pool(args.num_processes) as pool:
-        results_iter = list(
-            tqdm(pool.imap(crawler.crawl_content, urls), total=len(urls))
-        )
+        results_iter = list(tqdm(pool.imap(crawler.crawl_content, urls), total=len(urls)))
 
     final_contents = []
 
@@ -31,8 +27,5 @@ if __name__ == "__main__":
         if len(content) > 0:
             final_contents.extend(content)
 
-
     with open(args.output_file_path, "w", encoding="utf-8") as json_file:
         json.dump(final_contents, json_file, ensure_ascii=False, indent=4)
-
-

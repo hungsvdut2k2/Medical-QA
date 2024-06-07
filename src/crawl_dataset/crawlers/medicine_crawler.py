@@ -1,5 +1,7 @@
-from typing import Optional, List, Any
+from typing import Any, List, Optional
+
 from .base_crawler import BaseCrawler
+
 
 class MedicineCrawler(BaseCrawler):
     def __init__(self, main_url: Optional[str]):

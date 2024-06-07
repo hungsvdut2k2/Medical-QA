@@ -2,8 +2,9 @@ from typing import Optional
 
 from tqdm import tqdm
 
-from .base_provider import BaseProvider
 from src.translate_dataset.translators import GoogleTranslator
+
+from .base_provider import BaseProvider
 
 
 class ConversationProvider(BaseProvider):
@@ -41,13 +42,12 @@ class ConversationProvider(BaseProvider):
         translated_result = []
 
         for index in tqdm(range(0, len(self.dataset), self.batch_size)):
-            messages = self.dataset[index: index + self.batch_size]
+            messages = self.dataset[index : index + self.batch_size]
 
             try:
                 translated_message = self.translator(
                     texts=messages, src_language=src_language, dest_language=dest_language
                 )
-
 
                 translated_result.append({"conversation": translated_message})
 
