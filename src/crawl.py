@@ -4,7 +4,7 @@ from multiprocessing import Pool
 
 from tqdm import tqdm
 
-from crawlers.crawler_factory import CrawlerFactory
+from crawl_dataset.crawlers.crawler_factory import CrawlerFactory
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
