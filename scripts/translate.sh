@@ -1,9 +1,9 @@
 export PYTHONPATH=./
 
-python translate_dataset/translate.py \
---provider-name instruction \
---input-file-path /Users/viethungnguyen/Medical-QA/dataset/medical_meadow_wikidoc.json \
---save-file-path /Users/viethungnguyen/Medical-QA/dataset/test.jsonl \
---src-language en \
---dest-language vi \
---batch-size 16
+python src/translate.py \
+	--provider-name conversation \
+	--input-file-path /Users/viethungnguyen/Medical-QA/dataset/dialouge_dataset/medical_chat_data.json \
+	--save-file-path /Users/viethungnguyen/Medical-QA/dataset/translated/medical_chat_data.jsonl \
+	--src-language en \
+	--dest-language vi \
+	--batch-size 16

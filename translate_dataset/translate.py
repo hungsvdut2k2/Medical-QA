@@ -1,8 +1,8 @@
 import argparse
 import json
 
-from src.translate_dataset.providers import ProviderFactory
-from src.translate_dataset.translators import GoogleTranslator
+from translate_dataset.providers import ProviderFactory
+from translate_dataset.translators import GoogleTranslator
 
 if __name__ == "__main__":
 

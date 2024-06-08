@@ -3,7 +3,7 @@ from typing import Optional
 
 from datasets import Dataset, load_dataset
 
-from src.translate_dataset.translators import GoogleTranslator
+from translate_dataset.translators import GoogleTranslator
 
 
 class BaseProvider(ABC):

@@ -3,7 +3,7 @@ from typing import Optional
 from qdrant_client import QdrantClient, models
 from sentence_transformers import SentenceTransformer
 
-from src.app.schemas import Document
+from app.schemas import Document
 
 
 class QdrantVectorStore:
@@ -13,12 +13,14 @@ class QdrantVectorStore:
         self.client = QdrantClient(url=host_url)
         self.model = SentenceTransformer(model_name_or_path=model_name)
         self.collection_name = collection_name
+        """
         self.client.create_collection(
             collection_name=collection_name,
             vectors_config=models.VectorParams(
                 size=self.model.get_sentence_embedding_dimension(), distance=models.Distance.COSINE
             ),
         )
+        """
 
     def add_vector(self, index: Optional[int], document: Optional[Document]):
         self.client.upload_points(
