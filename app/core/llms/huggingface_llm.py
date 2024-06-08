@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional
 from ctransformers import AutoModelForCausalLM
 from transformers import AutoTokenizer
 
-from src.app.schemas import InferenceParams, InitParams
+from app.schemas import InferenceParams, InitParams
 
 
 class HuggingFaceLLM:

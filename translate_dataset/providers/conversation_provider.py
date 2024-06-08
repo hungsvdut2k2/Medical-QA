@@ -2,7 +2,7 @@ from typing import Optional
 
 from tqdm import tqdm
 
-from src.translate_dataset.translators import GoogleTranslator
+from translate_dataset.translators import GoogleTranslator
 
 from .base_provider import BaseProvider
 

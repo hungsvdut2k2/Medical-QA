@@ -1,6 +1,6 @@
 from typing import Any, Dict, List, Optional
 
-from src.app.schemas import MessageBase
+from app.schemas import MessageBase
 
 
 class ConversationMemory:
@@ -21,6 +21,8 @@ class ConversationMemory:
     def get_conversation(self, conversation_id: Optional[str]) -> List[Dict[str, Any]]:
         if conversation_id in self.memory:
             return self.memory[conversation_id]
+
+        return []
 
     def clear_conversation(self, conversation_id: Optional[str]):
         if conversation_id in self.memory:
