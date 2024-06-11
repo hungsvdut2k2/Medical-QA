@@ -32,7 +32,8 @@ class DiseaseCrawler(BaseCrawler):
             response = requests.get(url)
             soup = BeautifulSoup(response.text, "lxml")
             sections = soup.find_all(
-                "section", {"class": "collapsible-container collapsible-block collapsed screen-sm"}
+                "section",
+                {"class": "collapsible-container collapsible-block collapsed screen-sm"},
             )
 
             for index, section in enumerate(sections):
