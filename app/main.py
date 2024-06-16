@@ -4,8 +4,8 @@ from starlette.middleware.cors import CORSMiddleware
 
 from app.api.routes import chat
 from app.core.llms import HuggingFaceLLM
-from app.core.settings import app_settings
 from app.core.memories import ConversationMemory
+from app.core.settings import app_settings
 from app.core.vector_stores import QdrantVectorStore
 from app.schemas import InferenceParams, InitParams
 from app.services import ConversationManager

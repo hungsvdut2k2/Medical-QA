@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 from pydantic import BaseModel, Field
 
@@ -18,3 +18,4 @@ class InferenceParams(BaseModel):
     top_p: Optional[float] = Field(default=None, title="Top P", description="Top P")
     temperature: Optional[float] = Field(default=None, title="Temperature", description="Temperature")
     stream: Optional[bool] = Field(default=None, title="Stream", description="Stream")
+    stop: List[str] = ["</s>", "[/INST]"]

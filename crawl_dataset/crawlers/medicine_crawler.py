@@ -98,8 +98,9 @@ class MedicineCrawler(BaseCrawler):
         for index, line in enumerate(start_indices[:-1]):
             chunks.append(
                 {
+                    "url": url,
                     "title": content[start_indices[index]],
-                    "content": "\n".join(content[start_indices[index] : start_indices[index + 1]]),
+                    "content": "\n".join(content[start_indices[index]:start_indices[index + 1]]),
                 }
             )
 
@@ -115,7 +116,7 @@ class MedicineCrawler(BaseCrawler):
             {
                 "url": url,
                 "title": content[start_indices[-1]],
-                "content": "\n".join(content[start_indices[-1] : removed_indices]),
+                "content": "\n".join(content[start_indices[-1]:removed_indices]),
             }
         )
 
