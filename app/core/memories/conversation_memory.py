@@ -10,7 +10,7 @@ class ConversationMemory:
 
     def add_messages(self, message: MessageBase):
         if message.conversation_id in self.memory:
-            self.memory[message.conversation_id].append(message)
+            self.memory[message.conversation_id].append({"role": message.role, "content": message.content})
 
             if len(self.memory[message.conversation_id]) > self.top_k:
                 self.memory[message.conversation_id].pop(0)

@@ -35,6 +35,9 @@ vector_store = QdrantVectorStore(
     host_url=app_settings.host_url,
     model_name=app_settings.model_name,
     collection_name=app_settings.collection,
+    is_segmented=True,
+    bm25_parameter_path=app_settings.bm25_parameter_path,
+    top_k=2,
 )
 llm = HuggingFaceLLM(int_parameters=init_params, inference_parameters=inference_params)
 conversation_manager = ConversationManager(llm=llm, vector_store=vector_store, memory=conversation_memory)
